@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, NavLink, Link } from "react-router";
+import { BrowserRouter as Router, Switch, NavLink, Link } from "react-router-dom";
 
 import axios from "axios";
 import Avatar from "react-avatar";
@@ -13,13 +13,14 @@ const User = () => {
   useEffect(() => {
     axios("https://jsonplaceholder.typicode.com/users")
       .then((data) => {
-        console.log(data);
-
+       
+        console.log(data)
         setUserData(data.data);
       })
       
-  });
+  } , []);
 
+ 
 
  
   return (
@@ -47,7 +48,9 @@ const User = () => {
                   {i.email}
                 </a>
 
-                <button className='btn btn-primary btn-block'>MORE DETAILS</button>
+          <Link to ={{pathname: '/userdetails' , state:{id:i.id}}} >     <button className='btn btn-primary btn-block'>MORE DETAILS</button>
+              
+              </Link>
               </div>
             </div>
           </div>
