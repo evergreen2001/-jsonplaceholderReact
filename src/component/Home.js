@@ -5,13 +5,15 @@ import axios from "axios";
 import Avatar from "react-avatar";
 // useState
 const User = () => {
+
+  
   let [data, setUserData] = useState([]);
 
   let [error, setError] = useState(false);
 
 
   useEffect(() => {
-    axios("https://jsonplaceholder.typicode.com/users")
+    axios.get("https://jsonplaceholder.typicode.com/users")
       .then((data) => {
        
         console.log(data)
