@@ -1,8 +1,9 @@
-.avatar{
+.avatar {
+  margin: 5px auto;
+}
 
-    border-radius: 30px;
-    height:60px;
-    width:60px;
-    background-color:rgba(128, 128, 128, 0.377);
-    margin:20px auto
+
+.card{
+  border-top: none;
+ 
 }

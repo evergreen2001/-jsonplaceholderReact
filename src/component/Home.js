@@ -8,7 +8,7 @@ const User = () => {
   let [data, setUserData] = useState([]);
 
   let [error, setError] = useState(false);
-  let [avatar, setAvatar] = useState(null);
+
 
   useEffect(() => {
     axios("https://jsonplaceholder.typicode.com/users")
@@ -17,34 +17,37 @@ const User = () => {
 
         setUserData(data.data);
       })
-      .catch((err) => {
-        setError(error.err);
-      });
+      
   });
 
+
+ 
   return (
     <div className="row">
       {data.map((i) => {
         return (
-          <div className="col-lg-4 mt-3">
-            <div class="card">
+          <div className="col-lg-4 mt-5" key={i.id}>
+            <div className="card">
               <div className="avatar">
               
                 <Avatar
                   color={Avatar.getRandomColor("sitebase", [
-                    "rgba(128, 128, 128, 0.377)",
-                    "green",
-                    "blue",
+                    'rgb(128, 128, 128)'
+                    
                   ])}
                   name={i.name}
+                  round="50px"
+                  size="50"
                 />
               </div>
               <div className="card-body text-center">
                 <h5 className="card-title">{i.name}</h5>
                 <p className="card-text">{i.username}</p>
-                <a href="mailto" className="card-text">
+                <a className="card-text">
                   {i.email}
                 </a>
+
+                <button className='btn btn-primary btn-block'>MORE DETAILS</button>
               </div>
             </div>
           </div>
