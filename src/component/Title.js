@@ -15,3 +15,6 @@ const Title = (params) => {
     )
     
 }
+
+
+export default Title
