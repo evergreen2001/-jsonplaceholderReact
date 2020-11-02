@@ -1,15 +1,20 @@
 import React from 'react';
 
-const Title = (params) => {
+const Title = () => {
 
     return(
 
-<div className="container">
+<div className="container ">
+
+<div className="text-center mt-5">
 
 
-    <h1>FireGal</h1>
+<h1>FireGal</h1>
 
-    <p>Your color</p>
+<h4>Your color</h4>
+</div>
+
+   
 </div>
     
     )

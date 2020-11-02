@@ -1,3 +1,7 @@
+import * as firebase from  'firebase/app'
+import 'firebase/storage'
+import 'firebase/firestore'
+
 var firebaseConfig = {
     apiKey: "AIzaSyCuPXHjXbIrxHHJxOCOYgo5xnqeThRRDFk",
     authDomain: "firegal-be39a.firebaseapp.com",
@@ -11,3 +15,10 @@ var firebaseConfig = {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
+
+
+  const storage = firebase.storage()
+  const firestore = firebase.firestore()
+
+
+  export {storage , firestore}
