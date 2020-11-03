@@ -15,18 +15,18 @@ const useStorage = (file) => {
     storageRef.put(file).on(
       "state_changed",
       (snap) => {
-        let percent = (snap.bytesTransferres / snap.totalBytes) * 100;
+        let percent = (snap.bytesTransferred / snap.totalBytes) * 100;
 
         setProgress(percent);
       },
       (err) => {
         setError(err);
-      }
-    ,
+      },
       async () => {
-        const url = await storageRef.getDownloadURl();
+        const url = await storageRef.getDownloadURL();
         setUrl(url);
-      });
+      }
+    );
   }, [file]);
 
   return { progress, url, error };
