@@ -1,23 +1,30 @@
+import { useState, useEffect } from "react";
+
+import { firestore } from "../firebase/config";
+
+const useFirestore = (collection) => {
+  const [docs, setDocs] = useState([]);
+
+  useEffect(() => {
+   const unsub =  firestore.collection(collection)
+    .orderBy('createdAt ' , 'desc')
+    .onSnapshot((snap) => {
+      let documents = [];
+
+      snap.forEach(doc => {
+        documents.push({ ...doc.data() , id:doc.id });
+      });
+
+      setDocs(documents);
+    });
 
 
-import {useState , useEffect} from 'react';
+    return () => unsub();
+  }, [collection]);
+  return {
+   
 
-import { firestore} from '../firebase/config'
+    docs
+}};
 
-const useFirestore = (params) => {
-
-    const [docs, setDocs] = useState([])
-
-
-
-    return(
-
-
-docs
-
-    )
-    
-}
-
-
-export default useFirestore
+export default useFirestore;

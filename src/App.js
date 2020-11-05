@@ -11,7 +11,7 @@ function App() {
       <Title />
 <UploadForm/>
 
-<ImageGrid/>
+<ImageGrid />
     </div>
   );
 }
