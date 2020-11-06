@@ -1,26 +1,12 @@
+import React from "react";
 
-
-import React from 'react'
-
-
-import useFirestore from '../hooks/useFirestore'
-
+import useFirestore from "../hooks/useFirestore";
 
 const ImageGrid = () => {
+  const { docs } = useFirestore("images");
 
+  console.log(docs);
+  return <div className="image">image</div>;
+};
 
-    const {docs} = useFirestore('images');
-
-    console.log(docs)
-    return(
-
-        <div className="image">
-
-            image
-        </div>
-    )
-    
-}
-
-
-export default ImageGrid
+export default ImageGrid;
