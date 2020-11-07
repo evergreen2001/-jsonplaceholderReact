@@ -20,9 +20,13 @@ const UploadForm = () => {
     }
   };
   return (
-    <form>
+    <form className="text-center">
+    <label>
+    
       <input type="file" onChange={handleChange} />
+      <span>+</span>
 
+</label>
       <div className="output">
         {error && <div className="err">{error}</div>}
 
